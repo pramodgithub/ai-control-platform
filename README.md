@@ -1,12 +1,16 @@
 🧠 AI Control Platform
 
-A structured AI compliance and decision engine built with Retrieval-Augmented Generation (RAG) and schema-enforced LLM outputs.
+A structured AI compliance and governance engine built using Retrieval-Augmented Generation (RAG) with schema-enforced LLM outputs and auditability.
 
-Designed to demonstrate:
-	•	AI system reliability
-	•	Structured generation
+🎯 Purpose
+
+This project focuses on:
+	•	Structured decision contracts
 	•	Evaluation harness
-	•	Governance-aware AI architecture
+	•	Governance controls
+	•	Audit trail & replay
+	•	Observability metrics
+	•	Production-style API interface
 
 ⸻
 
@@ -35,7 +39,8 @@ Designed to demonstrate:
 	•	Postgres + pgvector
 	•	Pydantic
 	•	LLM Structured JSON Output
-	•	Cosine Similarity Retrieval
+	•	FastAPI
+	•	SQLAlchemy
 	•	Modular Service Architecture
 
 ⸻
@@ -95,3 +100,55 @@ This project focuses on:
 	•	Evaluation
 	•	Governance
 	•	Production-readiness mindset
+
+
+🚀 Running the API
+
+uvicorn app.api.main:app --reload
+
+Visit
+http://localhost:8000/docs
+
+📡 API Endpoints
+
+		POST /evaluate
+
+		Evaluate a compliance document.
+
+		Request:
+		{
+		"document": "Organization performs periodic risk assessments..."
+		}
+
+GET /replay/{id}
+
+Replay a stored compliance decision.
+
+⸻
+
+GET /metrics
+
+Returns governance metrics:
+	•	total evaluations
+	•	average confidence
+	•	human review rate
+
+⸻
+
+🛡 Governance Capabilities
+	•	All LLM decisions are persisted
+	•	Audit trace with timestamp
+	•	Human review tracking
+	•	Risk level classification
+	•	Decision replay capability
+	•	Evaluation metrics monitoring
+
+⸻
+
+🧪 Evaluation Harness
+
+	Static regression tests via:
+
+		python test_eval.py
+
+	Ensures deterministic validation of compliance decisions.
