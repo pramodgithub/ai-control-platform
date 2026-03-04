@@ -21,7 +21,7 @@ def ingest_policy_clause(
             criticality_weight: float
         ):
     embedding = provider.embed(clause_text)
-#   print(f"Embedding successful! Vector length: {len(embedding)}")
+    print(f"Embedding successful! Vector length: {len(embedding)}")
     
     db = SessionLocal()
 
