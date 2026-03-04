@@ -1,0 +1,32 @@
+[
+  {
+    "id": "TC-001",
+    "input": "Vendor stores EU customer data without encryption.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_clauses": ["SEC-01-2.1"]
+  },
+  {
+    "id": "TC-002",
+    "input": "Vendor stores anonymized analytics data in US servers.",
+    "expected_decision": "COMPLIANT",
+    "expected_clauses": []
+  },
+  {
+    "id": "TC-003",
+    "input": "Vendor stores EU customer data without safeguards.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_clauses": []
+  },
+  {
+    "id": "TC-004",
+    "input": "Vendor transfers EU personal data to US without safeguards.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_clauses": ["SEC-03-3.1"]
+    },
+    {
+    "id": "TC-005",
+    "input": "Vendor stores anonymized analytics logs in US servers.",
+    "expected_decision": "COMPLIANT",
+    "expected_clauses": ["SEC-02-1.1"]
+    }
+]

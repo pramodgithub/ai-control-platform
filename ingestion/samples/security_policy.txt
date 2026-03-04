@@ -1,0 +1,8 @@
+SEC-01 Data Protection
+All personal data must be encrypted at rest and in transit.
+
+SEC-02 Access Control
+Access to production systems must require multi-factor authentication.
+
+SEC-03 Incident Response
+Security incidents must be reported within 24 hours.

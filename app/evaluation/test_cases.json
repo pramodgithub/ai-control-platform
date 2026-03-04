@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC-001",
+    "input": "An employee shares their system login credentials with a colleague.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_risk": "security",
+    "expected_clauses": ["ISO27001_2022-2.6", "ISO27001_2022-2.10"]
+  },
+  {
+    "id": "TC-002",
+    "input": "Customer personal data is sent via email without encryption.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_risk": "security",
+    "expected_clauses": ["ISO27001_2022-2.7", "ISO27001_2022-2.10"]
+  },
+  {
+    "id": "TC-003",
+    "input": "The company has no disaster recovery plan for critical systems.",
+    "expected_decision": "NON_COMPLIANT",
+    "expected_risk": "operational",
+    "expected_clauses": ["ISO27001_2022-1.1", "ISO27001_2022-2.3"]
+  },
+  {
+    "id": "TC-004",
+    "input": "The organization performs periodic risk assessments and documents mitigation strategies.",
+    "expected_decision": "COMPLIANT",
+    "expected_risk": "operational",
+    "expected_clauses": ["ISO27001_2022-2.3"]
+  },
+  {
+    "id": "TC-005",
+    "input": "Employees receive mandatory security awareness training every year.",
+    "expected_decision": "COMPLIANT",
+    "expected_risk": "general",
+    "expected_clauses": ["ISO27001_2022-2.2", "ISO27001_2022-2.5"]
+  }
+]
