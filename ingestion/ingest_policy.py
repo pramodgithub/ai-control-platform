@@ -30,7 +30,6 @@ sections = split_by_sections(cleaned_text)
 for s in sections[:10]:
     print("SECTION:", s[0]) """
     
-
 final_chunks = []
 
 for title, section_text in sections:
@@ -75,13 +74,9 @@ for title, section_text in sections:
 
         final_chunks.append(chunk_obj)
 
-
-
 print(f"\nChunks created: {len(final_chunks)}\n")
 
 process_chunks(final_chunks, policy_id="ISO27001_2022")
-
-
 
 """ print("Sample:\n")
 if final_chunks:
