@@ -201,3 +201,7 @@ class EvaluationRunner:
         print("\n--- Confusion Matrix ---")
         for expected, preds in confusion.items():
             print(expected, preds)
+
+
+    def evaluate_document(self, document: str):
+        return self.engine.evaluate(document)        

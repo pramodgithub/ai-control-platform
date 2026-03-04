@@ -58,3 +58,10 @@ class ReplayEngine:
         print("Unstable:", unstable)
 
         return new_decision
+
+
+# top‑level convenience wrapper so callers can just import a function
+# instead of having to instantiate ReplayEngine themselves.
+def replay_decision(decision_id: int):
+    """Run a decision replay using a fresh ReplayEngine instance."""
+    return ReplayEngine().replay_decision(decision_id)
