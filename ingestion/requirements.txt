@@ -1,0 +1,10 @@
+openai
+docling
+pymupdf
+pdfplumber
+tiktoken
+python-dotenv
+google-genai
+sqlalchemy
+psycopg2-binary
+halo

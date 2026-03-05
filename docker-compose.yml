@@ -1,0 +1,39 @@
+
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ai_control_platform
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    env_file:
+      - .env    
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:admin@db:5432/ai_control_platform
+    restart: always
+
+  ingestion:
+    build:
+      context: ./ingestion
+    env_file:
+      - .env      
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:admin@db:5432/ai_control_platform
+    command: ["python", "ingest_policy.py"]
+
+volumes:
+  postgres_data:

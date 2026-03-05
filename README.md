@@ -53,6 +53,7 @@ This project focuses on:
         ├── retrieval/
         ├── storage/
         ├── ai/
+		├── api/
         ├── models/
         ├── governance/
         ├── evaluation/
@@ -81,8 +82,88 @@ The governance module introduces:
 
 ⸻
 
+📥 Document Ingestion Pipeline
+
+The platform includes a separate ingestion service responsible for document preprocessing and embedding generation.
+
+This service is isolated due to dependency requirements (e.g., document parsing libraries) and runs as a batch job.
+
+	Ingestion Flow
+
+	Raw Document
+		↓
+	Parsing (Docling)
+		↓
+	Normalization
+		↓
+	Chunking Strategy
+		↓
+	Vector Embedding Generation
+		↓
+	PostgreSQL + pgvector Storage
+
+⸻
+
+🧩 Document Processing Strategy
+
+1️⃣ Parsing
+	•	Uses Docling-based pipeline
+	•	Handles structured and semi-structured policy documents
+	•	Extracts clean textual content
+
+⸻
+
+2️⃣ Normalization
+	•	Text cleaning
+	•	Removal of noise / formatting artifacts
+	•	Structural consistency preparation
+
+This ensures higher embedding quality and better retrieval consistency.
+
+⸻
+
+3️⃣ Chunking Strategy
+
+Documents are segmented into semantically meaningful chunks to optimize retrieval.
+
+Chunking is designed to:
+	•	Preserve contextual coherence
+	•	Avoid context dilution
+	•	Maintain clause-level interpretability
+	•	Support accurate compliance mapping
+
+Chunk metadata stored includes:
+	•	Document source
+	•	Section reference
+	•	Clause mapping
+	•	Chunk index
+
+⸻
+
+4️⃣ Vector Embedding
+
+Each chunk is transformed into a dense vector representation and stored in PostgreSQL using pgvector.
+
+This enables:
+	•	Semantic similarity search
+	•	Context-aware retrieval
+	•	RAG-based compliance evaluation
+
+⸻
+
+🗄 Storage Layer
+
+The system uses:
+	•	PostgreSQL for structured metadata
+	•	pgvector extension for embedding similarity search
+	•	SQLAlchemy ORM for governance decision persistence
+
+This hybrid storage design separates:
+	•	Retrieval data (embeddings)
+	•	Governance decisions (audit trail)
+
 🚀 Roadmap
-	•	Add Graph-based retrieval (GraphRAG exploration)
+	• 	Future enhancement: Graph-based structural retrieval (GraphRAG) for clause relationship modeling
 	•	Introduce agent memory layer
 	•	Add FastAPI inference endpoint
 	•	Add lightweight dashboard for decision inspection
